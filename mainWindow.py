@@ -47,8 +47,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
             ".js": "node",
             ".py": "python"
         }
-        # self.open_test_files()
-        # self.put_test_list()
+
         self.dir = ""
 
     def click_me(self):
@@ -56,6 +55,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
 
         self.pushButton.setText(random.choice(mylist))
 
+#this function choosed files from specific folder & print to array all relevant tests (end JS).
     def open_test_files(self):
         self.dir = QtWidgets.QFileDialog.getExistingDirectory(self, "select folder")
         if self.dir:
@@ -68,9 +68,8 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
                     print(self.list_of_test)
 
 
-
+#this function checks which tests is selected and print selected tests in array.
     def run_test_checked(self):
-        #checked_item = []
         iterator = QTreeWidgetItemIterator(self.testslist)
         while iterator.value():
             item=iterator.value()
@@ -82,7 +81,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
                 print(self.checked_item)
 
         return self.checked_item
-                #self.run_selected_tests()
+
 
     def generate_command_for_file_names(self, file_names):
         command_list = list(map(lambda file_name: f"{self.run_file_with(file_name)} {file_name}", file_names))
@@ -96,7 +95,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
                 return self.file_types[eof]
         return ""
 
-
+#this function run the tests that selected.
     def run_selected_tests(self):
         #try:
             checked_files = self.run_test_checked()
