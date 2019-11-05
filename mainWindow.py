@@ -125,6 +125,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
     def clear(self):
         self.testslist.clear()
 
+#this function print all Logs from current day to the screen.
     def print_all_logs(self):
         logger_file_path = self.dir + "/log/"
         print(logger_file_path)
@@ -135,6 +136,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
                         with open(logger_file_full_path, "r") as logger_file:
                             self.textEdit.append(logger_file.read())
 
+# this function select all checkbox & after that disable the button.
     def select_all_checkboxs(self):
         iterator = QTreeWidgetItemIterator(self.testslist)
         while iterator.value():
@@ -145,6 +147,8 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
             self.slc_all_btn.setEnabled(False)
             self.rmv_all_btn.setEnabled(True)
 
+
+# this function remove all checkbox that was selected.
     def remove_all_checkboxs(self):
         iterator = QTreeWidgetItemIterator(self.testslist)
         while iterator.value():
@@ -161,13 +165,15 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
         subprocess.Popen("taskkill /F /T /PID %i" % process_pid, shell=True)
         #Popen("TASKKILL /F /PID {pid} /T".format(pid=proc_pid))
 
+
+#this function stop the Process that running with kill command.
     def stop_all_running_processes(self):
         warning_msg = "Are you sure you want to stop all processes??"
-        resp = QtWidgets.QMessageBox.question(self, "Note:", warning_msg, QtWidgets.QMessageBox.Yes,
+        question = QtWidgets.QMessageBox.question(self, "Note:", warning_msg, QtWidgets.QMessageBox.Yes,
                                               QtWidgets.QMessageBox.No)
-        if resp == QtWidgets.QMessageBox.Yes:
-            for p in self.processes:
-                self.kill(p["id"])
+        if question == QtWidgets.QMessageBox.Yes:
+            for process in self.processes:
+                self.kill(process["id"])
                 self.btn_run.setEnabled(True)
                 self.btn_test.setEnabled(True)
 
