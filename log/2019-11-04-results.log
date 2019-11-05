@@ -1,0 +1,3 @@
+2019-11-04 10:47:14 [ClientsPageTest.js] warn: this is delete client test
+2019-11-04 10:47:30 [ClientsPageTest.js] warn: Client not Exist Because of Invalid Input -- Test Fail
+2019-11-04 10:47:32 [ClientsPageTest.js] warn: the user cant deleted -- Test Fail
