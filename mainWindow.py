@@ -36,7 +36,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
         self.pushButton.clicked.connect(self.click_me)
         self.btn_test.clicked.connect(self.open_test_files)
         self.btn_run.clicked.connect(self.run_selected_tests)
-        self.btn_logs.clicked.connect(self.print_all_logs)
+        self.btn_logs.clicked.connect(self.display_all_logs)
         self.slc_all_btn.clicked.connect(self.select_all_checkboxs)
         self.rmv_all_btn.clicked.connect(self.remove_all_checkboxs)
         self.btn_stop.clicked.connect(self.stop_all_running_processes)
@@ -130,7 +130,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
         self.testslist.clear()
 
 #this function print all Logs from current day to the screen.
-    def print_all_logs(self):
+    def display_all_logs(self):
         logger_file_path = self.dir + "/log/"
         print(logger_file_path)
         for file in os.listdir(logger_file_path):
