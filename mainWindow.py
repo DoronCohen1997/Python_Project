@@ -69,16 +69,19 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
 
 
 #this function checks which tests is selected and print selected tests in array.
-    def run_test_checked(self):
+    def found_test_checked(self):
         iterator = QTreeWidgetItemIterator(self.testslist)
         while iterator.value():
             item=iterator.value()
             print(item)
-            iterator+=1
             if item.checkState(0):
                 item.text(0)
                 self.checked_item.append(item.text(0))
                 print(self.checked_item)
+                self.btn_run.setEnabled(False)
+                self.btn_test.setEnabled(False)
+            iterator += 1
+
 
         return self.checked_item
 
@@ -98,7 +101,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
 #this function run the tests that selected.
     def run_selected_tests(self):
         #try:
-            checked_files = self.run_test_checked()
+            checked_files = self.found_test_checked()
             print(checked_files)
             if not checked_files:
                 return ""
@@ -110,16 +113,18 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainWindow1.Ui_MainWindow):
                 process = Popen(run_command, shell=True, cwd=self.dir)
                 self.processes.append({"id": process.pid})
                 print(self.processes)
-            if process.poll() is None:
-                        self.btn_run.setEnabled(False)
-                        self.btn_test.setEnabled(False)
-            else:
-                        self.btn_run.setEnabled(True)
-                        self.btn_test.setEnabled(True)
+                Terminate = process.poll()
+
+
+            if Terminate is not None:
+             self.btn_run.setEnabled(True)
+             self.btn_test.setEnabled(True)
+
+
 
 
         #except:
-            print("Error")
+            #print("Error")
 
     def clear(self):
         self.testslist.clear()

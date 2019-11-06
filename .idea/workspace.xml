@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1c3208d-83ef-4357-a6ce-20c5cefc5e0e" name="Default Changelist" comment="" />
+    <list default="true" id="d1c3208d-83ef-4357-a6ce-20c5cefc5e0e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui_mainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui_mainWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui_mainWindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui_mainWindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui_mainWindow1.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui_mainWindow1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui_mainWindow1.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui_mainWindow1.ui" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
